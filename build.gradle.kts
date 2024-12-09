@@ -98,7 +98,7 @@ subprojects {
         publishing {
             repositories {
                 maven {
-                    url = uri("https://maven.pkg.github.com/revanced/Apktool")
+                    url = uri("https://maven.pkg.github.com/bocchi810/Apktool")
                     credentials {
                         username = System.getenv("GITHUB_ACTOR") ?: project.findProperty("gpr.user").toString()
                         password = System.getenv("GITHUB_TOKEN") ?: project.findProperty("gpr.key").toString()
@@ -108,7 +108,7 @@ subprojects {
             publications {
                 register("mavenJava", MavenPublication::class) {
                     from(components["java"])
-                    groupId = "app.revanced"
+                    groupId = "top.haoming9245.app.revanced"
                     artifactId = project.name
                     version = apktoolVersion
 
@@ -136,9 +136,9 @@ subprojects {
                             }
                         }
                         scm {
-                            connection = "scm:git:git://github.com/revanced/Apktool.git"
-                            developerConnection = "scm:git:git@github.com:revanced/Apktool.git"
-                            url = "https://github.com/revanced/Apktool"
+                            connection = "scm:git:git://github.com/bocchi810/Apktool.git"
+                            developerConnection = "scm:git:git@github.com:bocchi810/Apktool.git"
+                            url = "https://github.com/bocchi810/Apktool"
                         }
                     }
                 }
