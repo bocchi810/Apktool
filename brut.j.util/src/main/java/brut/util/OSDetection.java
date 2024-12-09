@@ -32,6 +32,15 @@ public class OSDetection {
         return (OS.contains("nix") || OS.contains("nux") || OS.contains("aix") || (OS.contains("sunos")));
     }
 
+    public static boolean isTermux() {
+        String userName = System.getProperty("user.home");
+        return userName != null && userName.contains("com.termux");
+    }
+
+    public static String osArch() {
+        return System.getProperty("os.arch");
+    }
+
     public static boolean isAndroid() {
         try {
             Class.forName("android.app.Activity");

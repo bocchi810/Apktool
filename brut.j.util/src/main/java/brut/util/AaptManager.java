@@ -47,6 +47,11 @@ public class AaptManager {
                 aaptBinary = Jar.getResourceAsFile("/prebuilt/macosx/" + aaptVersion, AaptManager.class);
             } else if (OSDetection.isUnix()) {
                 aaptBinary = Jar.getResourceAsFile("/prebuilt/linux/" + aaptVersion, AaptManager.class);
+                if (OSDetection.isTermux() && version == 2) {
+                    String arch = OSDetection.osArch();
+                    String aapt = "aapt2_" + arch;
+                    aaptBinary = Jar.getResourceAsFile("/prebuilt/android/" + aapt, AaptManager.class);
+                }
             } else if (OSDetection.isWindows()) {
                 aaptBinary = Jar.getResourceAsFile("/prebuilt/windows/" + aaptVersion + ".exe", AaptManager.class);
             } else {
